@@ -1,0 +1,13 @@
+CREATE TABLE postac(id_postaci INT PRIMARY KEY AUTO_INCREMENT, nazwa VARC         HAR(40), rodzaj ENUM('wiking', 'ptak', 'kobieta'), data_ur DATE, wiek INT UNSIGN         ED);
+
+
+CREATE TABLE walizka(id_walizki INT  NOT NULL PRIMARY KEY AUTO_INCREMENT, pojemnos
+c INT UNSIGNED, kolor ENUM('rozowy','teczowy','zolty'), id_wlasciciela FOREIGN KEY (id_wlasciciela) REFERENCES postac(id_postaci));
+
+UPDATE postac SET wiek = '88' WHERE id_postaci = '3';
+
+INSERT INTO postac VALUES ('1','Bjorn', 'ptak', '2002-07-12','19');
+
+INSERT INTO postac VALUES ('2','Drozd', 'wiking', '1990-07-12','29');
+
+INSERT INTO postac VALUES ('3','Tesciowa', 'kobieta', '1950-07-12','79');
