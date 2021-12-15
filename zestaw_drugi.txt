@@ -1,0 +1,57 @@
+elete from postac where id_postaci = 6;
+
+delete from postac where id_postaci = 7;
+
+alter table walizka drop foreign key walizka_ibfk_1;
+
+alter table przetwory drop foreign key przetwory_ibfk_1;
+
+alter table przetwory drop foreign key przetwory_ibfk_2;
+
+alter table postac modify id_postaci int;
+
+alter table postac drop primary key;
+
+elete from postac where id_postaci = 6;
+
+delete from postac where id_postaci = 7;
+
+alter table walizka drop foreign key walizka_ibfk_1;
+
+alter table przetwory drop foreign key przetwory_ibfk_1;
+
+alter table przetwory drop foreign key przetwory_ibfk_2;
+
+alter table postac modify id_postaci int;
+
+alter table postac drop primary key;
+
+update postac set nazwa_statku = 'lewiatan' where nazwa like '%a%';
+
+update statek set max_ladownosc = max_ladownosc * 0.7 where data_wodowania > '1900-01-01' and data_wodowania < '2000-01-01';
+
+alter table postac add constraint wiek check (wiek<1000);
+
+insert into postac values (10, 'Waz Loko', null, '1800-08-08', 221, null, null, 8);
+
+CREATE TABLE Marynarz LIKE postac;
+
+insert into Marynarz select * from postac where id_postaci < 10;
+
+update postac set nazwa_statku = null;
+
+update Marynarz set nazwa_statku = null;
+
+delete from postac where id_postaci = 8;
+
+delete from statek;
+
+alter table postac drop foreign key postac_ibfk_1;
+
+alter table statek drop primary key;
+
+drop table statek;
+
+create table zwierz(id_zwierza int primary key auto_increment, nazwa varchar(40), wiek int);
+
+insert into zwierz select id_postaci, nazwa, wiek from postac where wiek > 100 or wiek < 30;
